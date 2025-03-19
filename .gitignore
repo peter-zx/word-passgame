@@ -1,0 +1,21 @@
+# 虚拟环境
+.venv/
+
+# Python 缓存文件
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# 数据文件（避免提交用户数据）
+data/game_words.csv
+data/words*.csv
+data/scores.json
+
+# 其他临时文件
+*.log
+*.tmp
+
+# IDE 配置
+.vscode/
+.idea/

@@ -1,0 +1,28 @@
+.container { text-align: center; margin: 20px; font-family: Arial, sans-serif; }
+.mode-grid, .level-grid { display: grid; grid-template-columns: repeat(2, 120px); gap: 15px; justify-content: center; }
+.game-grid { display: grid; grid-template-columns: repeat(2, 100px); gap: 10px; margin: 20px auto; width: fit-content; }
+.card, .cell { border: 1px solid #333; padding: 15px; text-align: center; cursor: pointer; background-color: #e0e0e0; border-radius: 5px; }
+.card:hover, .cell:not(.matched):hover { background-color: #d0d0d0; }
+.cell { background-color: #f0f0f0; }
+.cell.selected { background-color: #ffd700; }
+.cell.matched { background-color: #a9a9a9; cursor: default; }
+.cell.wrong { background-color: #ff4040; }
+button { padding: 10px 20px; margin: 5px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer; }
+button:hover { background-color: #45a049; }
+textarea { margin: 10px; padding: 10px; width: 300px; }
+#timer, #score { font-size: 20px; margin: 10px; }
+#scoreboard { margin-top: 20px; }
+.modal { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 20px; border: 1px solid #333; border-radius: 5px; box-shadow: 0 0 10px rgba(0,0,0,0.5); width: 300px; }
+.modal-header { position: relative; }
+.modal-close { position: absolute; right: 10px; top: 10px; background: #ff4040; padding: 5px 10px; }
+.modal-buttons { display: flex; justify-content: space-around; margin-top: 20px; }
+#wrong-words { margin-top: 10px; }
+.wrong-word { display: flex; justify-content: space-between; margin: 5px 0; }
+.wrong-word span.chinese { font-weight: 300; }
+.wrong-word span.english { font-weight: bold; }
+/* 已有样式保持不变，新增以下内容 */
+.wordbank-grid { display: grid; grid-template-columns: repeat(2, 150px); gap: 10px; justify-content: center; }
+.wordbank-item { border: 1px solid #333; padding: 10px; text-align: center; cursor: pointer; background-color: #e0e0e0; border-radius: 5px; }
+.wordbank-item:hover { background-color: #d0d0d0; }
+.wordbank-item.selected { background-color: #ffd700; }
+.wrong-word-list { max-height: 300px; overflow-y: auto; }
