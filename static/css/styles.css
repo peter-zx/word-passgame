@@ -20,7 +20,6 @@ textarea { margin: 10px; padding: 10px; width: 300px; }
 .wrong-word { display: flex; justify-content: space-between; margin: 5px 0; }
 .wrong-word span.chinese { font-weight: 300; }
 .wrong-word span.english { font-weight: bold; }
-/* 已有样式保持不变，新增以下内容 */
 .wordbank-grid { display: grid; grid-template-columns: repeat(2, 150px); gap: 10px; justify-content: center; }
 .wordbank-item { border: 1px solid #333; padding: 10px; text-align: center; cursor: pointer; background-color: #e0e0e0; border-radius: 5px; }
 .wordbank-item:hover { background-color: #d0d0d0; }

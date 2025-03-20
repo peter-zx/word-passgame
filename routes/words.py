@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, request
 from config import DATA_DIR
 from utils.words_util import load_words_from_csv, update_game_words, save_wrong_words, load_wrong_words
-import os
+import os  # 确保导入
 import glob
 import pandas as pd
 

@@ -1,7 +1,9 @@
 import pandas as pd
-import os
+import os  # 确保导入
 import glob
 from config import DATA_DIR
+
+# 其余代码不变
 
 def load_words_from_csv():
     words_file = os.path.join(DATA_DIR, 'game_words.csv')
