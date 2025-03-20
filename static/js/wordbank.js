@@ -24,7 +24,7 @@ function toggleWordbankItem(element) {
 function updateSelectedWordbank() {
     const selectedItems = document.querySelectorAll('.wordbank-item.selected');
     const selectedFiles = Array.from(selectedItems).map(item => `data/${item.dataset.file}`);
-    fetch('/upload_words', { // 临时复用，实际需新路由
+    fetch('/upload_words', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ selected_files: selectedFiles })
@@ -32,7 +32,10 @@ function updateSelectedWordbank() {
     .then(response => response.json())
     .then(data => {
         alert(data.message || data.error);
-        if (!data.error) showMainMenu();
+        if (!data.error) {
+            localStorage.setItem('wordbankSelected', 'true'); // 标记已选择词库
+            showMainMenu();
+        }
     });
 }
 

@@ -49,7 +49,7 @@ function loadGroup() {
         <div id="group-info">第 ${currentGroup + 1}${currentTimeMode === 'endless' ? '' : '/6'} 组</div>
         <div id="game-grid" class="game-grid"></div>
         <button onclick="endGame()">结束游戏</button>
-        <button onclick="showLevels(currentTimeMode)">返回</button>
+        <button onclick="returnToLevels()">返回</button>
         <button onclick="showMainMenu()">回到主页</button>
     `;
     const gameGrid = document.getElementById('game-grid');
@@ -66,6 +66,15 @@ function loadGroup() {
     });
     window.wordIds = word_ids;
 }
+
+// 新增返回逻辑
+function returnToLevels() {
+    stopTimer();
+    document.getElementById('game').style.display = 'none';
+    document.getElementById('game').innerHTML = ''; // 清空游戏内容
+    showLevels(currentTimeMode); // 返回难度选择
+}
+
 
 function handleCellClick(cellId, word_ids, cellElement) {
     if (matchedPairs.has(cellId) || selectedWords.includes(cellId)) return;

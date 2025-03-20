@@ -4,6 +4,7 @@ let currentTimeMode = '65';
 function showMainMenu() {
     document.getElementById('main-menu').innerHTML = `
         <h1>知识消消乐</h1>
+        ${!hasWordbank ? '<p style="color: red;">新手提示：请先选择词库以开始游戏！</p>' : ''}
         <h3>选择模式</h3>
         <div class="mode-grid">
             <div class="card" onclick="showLevels('65')">65秒</div>
@@ -40,6 +41,27 @@ function showLevels(timeMode) {
     document.getElementById('main-menu').style.display = 'none';
     document.getElementById('level-menu').style.display = 'block';
 }
+
+function showWrongWords() {
+    fetch('/wrong_words')
+        .then(response => response.json())
+        .then(wrongWords => {
+            document.getElementById('upload').innerHTML = `
+                <h2>错题本</h2>
+                <div class="wrong-word-list">
+                    ${wrongWords.length ? wrongWords.map(w => `<div class="wrong-word"><span class="chinese">${w.chinese}</span> --- <span class="english">${w.english}</span></div>`).join('') : '<p>暂无错选单词</p>'}
+                </div>
+                <button onclick="showMainMenu()">返回</button>
+            `;
+            document.getElementById('main-menu').style.display = 'none';
+            document.getElementById('upload').style.display = 'block';
+        })
+        .catch(error => {
+            console.error('Error loading wrong words:', error);
+            alert('无法加载错题本');
+        });
+}
+
 
 // 初始化主菜单
 showMainMenu();
