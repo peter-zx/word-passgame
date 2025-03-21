@@ -1,0 +1,6 @@
+version: "2"
+authtoken: "2ucW2Xd4dL6XACNAWeyBoDlBO9g_6g3zZJeHw61HUmfafWCiV" # 替换为你的 token
+tunnels:
+  my_tunnel:
+    addr: ${FLASK_PORT}
+    proto: http
