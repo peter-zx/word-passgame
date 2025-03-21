@@ -6,7 +6,7 @@ from config import DATA_DIR
 def load_words_from_csv():
     words_file = os.path.join(DATA_DIR, 'game_words.csv')
     if not os.path.exists(words_file):
-        update_game_words()  # 初次运行时生成默认词库
+        update_game_words()
     try:
         df = pd.read_csv(words_file)
         return df.to_dict(orient='records')
@@ -43,3 +43,22 @@ def update_game_words(selected_files=None):
         df = pd.DataFrame(all_words)
         df.to_csv(game_file, index=False, encoding='utf-8')
         print(f"Updated {game_file} with {len(all_words)} words")
+
+def save_wrong_words(wrong_words):
+    wrong_file = os.path.join(DATA_DIR, 'wrong_words.csv')
+    existing_words = load_wrong_words()
+    unique_words = { (w['english'], w['chinese']) : w for w in existing_words + wrong_words }
+    df = pd.DataFrame(list(unique_words.values()))
+    df.to_csv(wrong_file, index=False, encoding='utf-8')
+    print(f"Saved {len(unique_words)} unique wrong words to {wrong_file}")
+
+def load_wrong_words():
+    wrong_file = os.path.join(DATA_DIR, 'wrong_words.csv')
+    try:
+        df = pd.read_csv(wrong_file)
+        return df.to_dict(orient='records')
+    except FileNotFoundError:
+        return []
+    except Exception as e:
+        print(f"Error loading wrong words: {e}")
+        return []

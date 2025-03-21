@@ -6,7 +6,6 @@ from routes.scores import scores_bp
 
 app = Flask(__name__, static_folder='static', static_url_path='')
 
-# 注册蓝图
 app.register_blueprint(home_bp)
 app.register_blueprint(words_bp)
 app.register_blueprint(game_bp)
@@ -15,4 +14,4 @@ app.register_blueprint(scores_bp)
 if __name__ == '__main__':
     print(f"Static folder: {app.static_folder}")
     print(f"Static URL path: {app.static_url_path}")
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)

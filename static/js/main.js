@@ -1,7 +1,10 @@
+console.log("main.js loaded");
 let currentLevel = 'lv1';
 let currentTimeMode = '65';
 
 function showMainMenu() {
+    console.log("Showing main menu");
+    const hasWordbank = localStorage.getItem('wordbankSelected') === 'true'; // 定义 hasWordbank
     document.getElementById('main-menu').innerHTML = `
         <h1>知识消消乐</h1>
         ${!hasWordbank ? '<p style="color: red;">新手提示：请先选择词库以开始游戏！</p>' : ''}
@@ -61,7 +64,6 @@ function showWrongWords() {
             alert('无法加载错题本');
         });
 }
-
 
 // 初始化主菜单
 showMainMenu();
