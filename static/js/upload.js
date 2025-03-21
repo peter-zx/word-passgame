@@ -37,11 +37,7 @@ function showUploadForm() {
 
 function uploadWords() {
     console.log("Entering uploadWords()");
-<<<<<<< HEAD
-    let text = document.getElementById('word-text').value.trim();
-=======
     const text = document.getElementById('word-text').value.trim();
->>>>>>> 4657e4082a86963a5d422b1da1d927fffb84aa20
     const file = document.getElementById('word-file').files[0];
     const formData = new FormData();
     
@@ -49,10 +45,6 @@ function uploadWords() {
         console.log("Uploading file:", file.name);
         formData.append('file', file);
     } else if (text) {
-<<<<<<< HEAD
-        text = text.replace(/，/g, ',');
-=======
->>>>>>> 4657e4082a86963a5d422b1da1d927fffb84aa20
         console.log("Uploading text:", text);
         formData.append('text', text);
     } else {
@@ -96,11 +88,7 @@ function selectWordbanks() {
     fetch('/upload_words', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-<<<<<<< HEAD
-        body: JSON.stringify({ selected_files: selected })  // 移除多余的 "data/" 前缀，后端处理路径
-=======
         body: JSON.stringify({ selected_files: selected })
->>>>>>> 4657e4082a86963a5d422b1da1d927fffb84aa20
     })
     .then(response => response.json())
     .then(data => {

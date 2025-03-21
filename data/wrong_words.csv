@@ -1,16 +1,5 @@
 english,chinese,difficulty
-dog,狗,L1
-苹果,apple,L1
-<<<<<<< HEAD
-elephant,大象,L1
-香蕉,banana,L1
-apple,苹果,L1
 banana,香蕉,L1
+大象,elephant,L1
 狗,dog,L1
-cat,猫,L1
- 化学,chemistry,L1
-physics, 物理,L1
-lesson, 课,L1
- 科目,subject,L1
-=======
->>>>>>> 4657e4082a86963a5d422b1da1d927fffb84aa20
+apple,苹果,L1

@@ -30,7 +30,7 @@ def upload_words():
             if file.filename.endswith('.csv'):
                 content = file.read().decode('utf-8').strip()
                 lines = content.split('\n')
-                words = [line.replace('，', ',').split(',') for line in lines if line.strip()]  # 替换中文逗号
+                words = [line.split(',') for line in lines if line.strip()]
                 df = pd.DataFrame(words, columns=['english', 'chinese', 'difficulty'])
                 df.to_csv(new_file, index=False, encoding='utf-8')
             else:
@@ -40,9 +40,7 @@ def upload_words():
             if not text:
                 return jsonify({'error': '文本内容为空'}), 400
             lines = text.split('\n')
-            words = [line.replace('，', ',').split(',') for line in lines if line.strip()]  # 替换中文逗号
-            if not all(len(word) == 3 for word in words):
-                return jsonify({'error': '每行必须包含 3 列：英文,中文,难度'}), 400
+            words = [line.split(',') for line in lines if line.strip()]
             df = pd.DataFrame(words, columns=['english', 'chinese', 'difficulty'])
             df.to_csv(new_file, index=False, encoding='utf-8')
         else:
