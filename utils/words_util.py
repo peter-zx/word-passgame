@@ -47,7 +47,8 @@ def update_game_words(selected_files=None):
 def save_wrong_words(wrong_words):
     wrong_file = os.path.join(DATA_DIR, 'wrong_words.csv')
     existing_words = load_wrong_words()
-    unique_words = { (w['english'], w['chinese']) : w for w in existing_words + wrong_words }
+    # 去重：基于 english 和 chinese 的唯一性
+    unique_words = { (w['english'], w['chinese']): w for w in (existing_words + wrong_words) if 'english' in w and 'chinese' in w }
     df = pd.DataFrame(list(unique_words.values()))
     df.to_csv(wrong_file, index=False, encoding='utf-8')
     print(f"Saved {len(unique_words)} unique wrong words to {wrong_file}")

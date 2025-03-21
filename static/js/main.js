@@ -15,7 +15,7 @@ function showMainMenu() {
             <div class="card" onclick="showLevels('180')">180秒</div>
             <div class="card" onclick="showLevels('endless')">无尽模式</div>
         </div>
-        <button onclick="showUpload()">词库选择</button>
+        <button onclick="showWordbank()">词库选择</button>
         <button onclick="showWrongWords()">错题本</button>
         <div id="scoreboard"><h3>排行榜</h3><ul id="score-list"></ul></div>
     `;
@@ -27,6 +27,7 @@ function showMainMenu() {
     loadScores();
 }
 
+// 其他函数保持不变
 function showLevels(timeMode) {
     currentTimeMode = timeMode;
     document.getElementById('level-menu').innerHTML = `
@@ -66,8 +67,8 @@ function showWrongWords() {
                             <tbody>
                                 ${wrongWords.map(w => `
                                     <tr>
-                                        <td style="border: 1px solid #333; padding: 8px;">${w.chinese}</td>
-                                        <td style="border: 1px solid #333; padding: 8px;">${w.english}</td>
+                                        <td style="border: 1px solid #333; padding: 8px;">${w.chinese || '未知'}</td>
+                                        <td style="border: 1px solid #333; padding: 8px;">${w.english || '未知'}</td>
                                     </tr>
                                 `).join('')}
                             </tbody>
