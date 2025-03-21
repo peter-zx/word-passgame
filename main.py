@@ -14,4 +14,4 @@ app.register_blueprint(scores_bp)
 if __name__ == '__main__':
     print(f"Static folder: {app.static_folder}")
     print(f"Static URL path: {app.static_url_path}")
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=9527, debug=True)

@@ -24,7 +24,7 @@ Python
 from pyngrok import ngrok
 
 ngrok.set_auth_token("您的 ngrok 认证令牌") #请替换为你自己的token
-!ngrok authtoken 37P752QOOSEWEKSXZIZR3K6Z4LAV5Q2M  # 替换为你的 ngrok 认证令牌
+!ngrok authtoken 2ucW2Xd4dL6XACNAWeyBoDlBO9g_6g3zZJeHw61HUmfafWCiV  # 替换为你的 ngrok 认证令牌
 
 重要提示： 请务必将 "您的 ngrok 认证令牌" 替换为您自己的 ngrok 认证令牌。
 启动 ngrok 隧道： 确定您的应用程序正在监听的端口号。例如，如果您的应用程序正在监听端口 5000，请使用以下代码：
