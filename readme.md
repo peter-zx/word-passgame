@@ -1,3 +1,8 @@
+ 添加 "在 Colab 中打开" 徽章：
+ 徽章的 Markdown 代码如下：
+[![在 Colab 中打开](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/peter-zx/word-passgame/blob/main/知识消消乐测试.ipynb)
+
+
 ```
 E:\AIGC_design\word-passgame\
 │   ├── main.py                 # 主程序入口，负责启动 Flask 应用和路由注册
