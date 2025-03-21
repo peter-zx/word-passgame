@@ -1,3 +1,4 @@
+import os
 from flask import Flask
 from routes.home import home_bp
 from routes.words import words_bp
@@ -14,4 +15,5 @@ app.register_blueprint(scores_bp)
 if __name__ == '__main__':
     print(f"Static folder: {app.static_folder}")
     print(f"Static URL path: {app.static_url_path}")
-    app.run(host='0.0.0.0', port=9527, debug=True)
+    port = int(os.environ.get("FLASK_PORT", 9527))  # 默认端口为 9527
+    app.run(host="0.0.0.0", port=port, debug=True)
